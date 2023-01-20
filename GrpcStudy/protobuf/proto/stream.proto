@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = "./;proto";
+
+service StreamService{
+  // 关键字stream指定启用流特性，参数部分是接收客户端参数的流，返回值是返回给客户端的流。
+  //重新生成代码可以看到接口中新增加的Channel方法的定义
+  rpc GetStream(StreamRequestData) returns (stream StreamResponsetData){}//服务端流模式
+  rpc PostStream(stream StreamRequestData) returns (StreamResponsetData){}//客户端流模式
+  rpc AllStream(stream StreamRequestData) returns (stream StreamResponsetData){}//流模式
+}
+
+message StreamRequestData{
+  string data = 1;
+}
+message StreamResponsetData{
+  string msg = 1;
+}
