@@ -74,4 +74,12 @@ func main() {
 	//fmt.Println(slice)
 	//var slice = []int{1, 2, 3, 4, 5}
 	//fmt.Println(len(slice), cap(slice))
+
+	var b = make([]byte, 0, 1)
+	generateB(b)
+	fmt.Println(b)
+}
+
+func generateB(b []byte) {
+	b = append(b, 15)
 }
