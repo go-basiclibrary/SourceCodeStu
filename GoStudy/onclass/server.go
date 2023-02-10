@@ -68,6 +68,6 @@ func SignUp(c *Context) {
 
 	err = c.OkJson(resp)
 	if err != nil {
-		fmt.Errorf("写入响应失败:%v", err)
+		fmt.Printf("写入响应失败:%v", err)
 	}
 }
