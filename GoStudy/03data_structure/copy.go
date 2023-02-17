@@ -1,11 +1,13 @@
 package main
 
-import "fmt"
-
 type User struct {
 	Name string
 	Age  int
 	Size int
+}
+
+func (u *User) GetName() {
+	println(u)
 }
 
 func main() {
@@ -15,9 +17,11 @@ func main() {
 		Size: 1,
 	}
 	ChangeUser(u)
-	fmt.Println(u)
+	println(u)
+	u.GetName()
 }
 
 func ChangeUser(u *User) {
+	println(u)
 	u.Size = 18
 }

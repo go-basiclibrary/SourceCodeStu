@@ -36,7 +36,7 @@ func (h *HandlerBasedOnMap) ServeHTTP(c *Context) {
 }
 
 // key
-func (h HandlerBasedOnMap) key(method, path string) string {
+func (h *HandlerBasedOnMap) key(method, path string) string {
 	return method + "#" + path
 }
 
