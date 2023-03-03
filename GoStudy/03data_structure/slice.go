@@ -75,9 +75,19 @@ func main() {
 	//var slice = []int{1, 2, 3, 4, 5}
 	//fmt.Println(len(slice), cap(slice))
 
-	var b = make([]byte, 0, 1)
-	generateB(b)
-	fmt.Println(b)
+	//var b = make([]byte, 0, 1)
+	//generateB(b)
+	//fmt.Println(b)
+
+	// 如果底层没有进行扩容,那么内部修改值则会影响外部
+	// 如果底层切片引用变了,那么内部修改不会影响外部
+	//res := []int{1}
+	//changeSlice(res)
+	//fmt.Println(res)
+}
+
+func changeSlice(res []int) {
+	//res = append(res, 1000)
 }
 
 func generateB(b []byte) {
