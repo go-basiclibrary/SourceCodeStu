@@ -9,5 +9,5 @@ func main() {
 	//s = "wcg"
 	//b := []byte(s)
 	//b[1] = 'w'
-	//fmt.Println(s, b)
+	//fmt.Println(s, string(b))
 }

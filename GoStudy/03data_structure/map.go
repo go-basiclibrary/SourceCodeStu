@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // Go map 运行时核心结构
 //type hmap struct {
 //	// 当前哈希表中的元素数量
@@ -48,10 +46,27 @@ func main() {
 	//v := m["w"]
 	//fmt.Println(v)
 
-	var i int
-	i = 1
-	m := map[*int]int{}
-	m[&i] = 0
-	i = 2
-	fmt.Println(m)
+	//var i int
+	//i = 1
+	//m := map[*int]int{}
+	//m[&i] = 0
+	//i = 2
+	//fmt.Println(m)
+
+	//m := make(map[int]int)
+	//m[1] = 2
+	//go func() {
+	//	for {
+	//		for i := range m {
+	//			fmt.Println(m[i])
+	//		}
+	//		//m[time.Now().Nanosecond()] = 1
+	//		//time.Sleep(0.01e9)
+	//	}
+	//}()
+	//for {
+	//	for i := range m {
+	//		fmt.Println(m[i])
+	//	}
+	//}
 }

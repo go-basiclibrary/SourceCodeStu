@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	//c1 := make(chan interface{})
 	//c2 := make(chan interface{})
@@ -57,4 +59,18 @@ func main() {
 	//	fmt.Println("default")
 	//}
 
+	// 单独一个select
+	//select {}
+
+	// c 为nil 时,该协程永远不会被唤醒
+	var c chan int
+	//c = make(chan int)
+	go func() {
+		c <- 1
+	}()
+	select {
+	case <-c:
+	default:
+		fmt.Println("")
+	}
 }

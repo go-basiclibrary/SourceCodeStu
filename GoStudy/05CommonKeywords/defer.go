@@ -9,6 +9,14 @@ func main() {
 	//deferFunc()
 	//deferZz()
 	//deferZx()
+
+	//fmt.Println(*deferTT())
+}
+
+func deferTT() *int {
+	t := 0
+	defer func(i *int) { *i++ }(&t)
+	return &t
 }
 
 // defer 执行顺序
