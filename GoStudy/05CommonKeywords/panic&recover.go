@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"sync"
 	"time"
 )
 
 func main() {
-	//ginPanic()
+	ginPanic()
 	//跨协程失效
 	//CrossCtrip()
 
@@ -18,7 +19,37 @@ func main() {
 	//GoExit()
 
 	// 恢复后的功能
-	GoPanicRecover()
+	//GoPanicRecover()
+
+	// 查看defer recover会处理到哪一步
+	//DeferPanic()
+	//fmt.Println("abc")
+
+	// go 嵌套panic
+	//PanicQt()
+}
+
+func PanicQt() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+
+	go func() {
+		panic("456")
+	}()
+	panic("123")
+}
+
+func DeferPanic() error {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+	panic("默默阿达")
+	return nil
 }
 
 func GoPanicRecover() {
@@ -84,15 +115,23 @@ func ginPanic() {
 	engine := gin.Default()
 	g := engine.Group("/test")
 	g.GET("/tt", func(context *gin.Context) {
-		go func() {
-			defer func() {
-				if err := recover(); err != nil {
-					fmt.Println(err)
-				}
-			}()
-			panic(123)
-		}()
-		fmt.Fprintf(context.Writer, "abc")
+		//go func() {
+		//	defer func() {
+		//		if err := recover(); err != nil {
+		//			fmt.Println(err)
+		//		}
+		//	}()
+		//	panic(123)
+		//}()
+		var once sync.Once
+		for i := 0; i < 3; i++ {
+			once.Do(func() {
+				fmt.Fprintf(context.Writer, "abc+%d", i)
+			})
+		}
+		once.Do(func() {
+			fmt.Fprintf(context.Writer, "abc")
+		})
 	})
 
 	engine.Run(":8080")

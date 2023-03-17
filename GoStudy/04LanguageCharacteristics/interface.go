@@ -52,6 +52,9 @@ func main() {
 
 	//var c Duck = Cat{}
 	//c.(*Dog).Build()
+
+	var c Duck = Cat{}
+	c.(*Dog).Build()
 }
 
 type Dog struct {
