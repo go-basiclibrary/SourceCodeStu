@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 	//c1 := make(chan interface{})
 	//c2 := make(chan interface{})
@@ -63,14 +61,23 @@ func main() {
 	//select {}
 
 	// c 为nil 时,该协程永远不会被唤醒
-	var c chan int
-	//c = make(chan int)
-	go func() {
-		c <- 1
-	}()
-	select {
-	case <-c:
-	default:
-		fmt.Println("")
-	}
+	//var c chan int
+	////c = make(chan int)
+	//go func() {
+	//	c <- 1
+	//}()
+	//select {
+	//case <-c:
+	//default:
+	//	fmt.Println("")
+	//}
+
+	//var c chan int
+	//go func() {
+	//	http.ListenAndServe(":8000", nil)
+	//}()
+	//select {
+	//case v := <-c:
+	//	fmt.Println(v)
+	//}
 }
