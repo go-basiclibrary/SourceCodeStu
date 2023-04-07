@@ -16,6 +16,19 @@ func main() {
 	// 超时时,后续代码还会执行么
 	//go toTimeOut()
 	//select {}
+
+	ctx, _ := context.WithTimeout(context.TODO(), 1e9)
+
+	go TCancelWithCtx(ctx)
+
+	time.Sleep(2e9)
+	fmt.Println(ctx.Err())
+}
+
+func TCancelWithCtx(ctx context.Context) {
+	fmt.Println("TCancelWithCtx")
+	time.Sleep(1e9)
+	fmt.Println("TEND")
 }
 
 func toTimeOut() {
