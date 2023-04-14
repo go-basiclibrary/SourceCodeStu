@@ -1,23 +1,28 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"golang.org/x/sync/singleflight"
+	"golang.org/x/sync/errgroup"
 )
 
 func main() {
-	//errgroup, ctx := errgroup.WithContext(context.TODO())
-	//errgroup.Go(func() error {
-	//	fmt.Println("123")
-	//	return nil
-	//})
-
-	group := singleflight.Group{}
-	v, err, shared := group.Do("1", func() (interface{}, error) {
-		return 1, nil
+	errgroup, _ := errgroup.WithContext(context.TODO())
+	var i *int
+	i = new(int)
+	errgroup.Go(func() error {
+		*i = 1
+		return nil
 	})
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(v, shared)
+	errgroup.Wait()
+	fmt.Println(*i)
+
+	//group := singleflight.Group{}
+	//v, err, shared := group.Do("1", func() (interface{}, error) {
+	//	return 1, nil
+	//})
+	//if err != nil {
+	//	panic(err)
+	//}
+	//fmt.Println(v, shared)
 }
