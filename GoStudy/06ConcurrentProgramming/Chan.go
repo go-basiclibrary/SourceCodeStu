@@ -28,9 +28,28 @@ func main() {
 	//
 	//time.Sleep(1e9)
 
-	var i *int
-	*i = 10
+	//var i *int
+	//*i = 10
+
+	//ints := make(chan int)
+	//go func() {
+	//	fmt.Println("start ...")
+	//	time.Sleep(5e9)
+	//	i = 1
+	//	go func() {
+	//		for {
+	//			fmt.Printf("select * from xx\n")
+	//			select {
+	//			case v := <-ints:
+	//
+	//			}
+	//		}
+	//	}()
+	//	ints <- 1
+	//}()
 }
+
+var i int32
 
 type Stu struct {
 	abc string

@@ -84,6 +84,38 @@ func main() {
 	//res := []int{1}
 	//changeSlice(res)
 	//fmt.Println(res)
+
+	// slice append ptr is change
+	//res := []int{1, 2, 3}
+	//fmt.Printf("%p\n", res)
+	//
+	//res = res[:2]
+	//fmt.Printf("%p\n", res)
+	//
+	//res = append(res, 1)
+	//fmt.Printf("%p\n", res)
+	//fmt.Println(res)
+	//
+	//res = append(res, 1)
+	//fmt.Printf("%p\n", res)
+	//fmt.Println(res)
+
+	//var res []int
+	//fmt.Println(res == nil)
+
+	//var res = make([]int, 0)
+	//for i := 0; i < 10; i++ {
+	//	res = append(res, i)
+	//	fmt.Println(cap(res))
+	//}
+	//res = append(res, 1, 2, 3, 4)
+	//fmt.Println(cap(res))
+	//fmt.Println((*reflect.SliceHeader)(unsafe.Pointer(&res)))
+
+	// deep copy
+	//var res = make([]int, 2)
+	//copy(res, []int{1, 2, 3})
+	//fmt.Println(res)
 }
 
 func changeSlice(res []int) {
