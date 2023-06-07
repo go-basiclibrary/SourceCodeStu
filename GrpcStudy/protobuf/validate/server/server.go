@@ -1,8 +1,8 @@
 package main
 
 import (
+	"GrpcStudy/protobuf/validate/proto"
 	context "context"
-	"gobasic/protobuf/validate/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

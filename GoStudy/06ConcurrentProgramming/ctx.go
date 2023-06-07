@@ -17,12 +17,26 @@ func main() {
 	//go toTimeOut()
 	//select {}
 
-	ctx, _ := context.WithTimeout(context.TODO(), 1e9)
+	//ctx, _ := context.WithTimeout(context.TODO(), 1e9)
+	//
+	//go TCancelWithCtx(ctx)
+	//
+	//time.Sleep(2e9)
+	//fmt.Println(ctx.Err())
 
-	go TCancelWithCtx(ctx)
+	ctx, cancel := CtxTimeOutWithCancel(context.TODO())
 
-	time.Sleep(2e9)
+	cancel()
+
 	fmt.Println(ctx.Err())
+}
+
+func CtxTimeOutWithCancel(ctx context.Context) (context.Context, context.CancelFunc) {
+	ctx, cancel := context.WithCancel(ctx)
+
+	ctx, _ = context.WithTimeout(ctx, 1e9)
+
+	return ctx, cancel
 }
 
 func TCancelWithCtx(ctx context.Context) {

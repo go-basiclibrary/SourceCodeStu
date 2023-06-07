@@ -8,6 +8,7 @@ package proto
 
 import (
 	context "context"
+	"fmt"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -35,7 +36,9 @@ func NewGreeterClient(cc grpc.ClientConnInterface) GreeterClient {
 
 func (c *greeterClient) SayHello(ctx context.Context, in *Person, opts ...grpc.CallOption) (*Person, error) {
 	out := new(Person)
+	fmt.Println(in, out, opts)
 	err := c.cc.Invoke(ctx, "/Greeter/SayHello", in, out, opts...)
+	fmt.Println(out)
 	if err != nil {
 		return nil, err
 	}

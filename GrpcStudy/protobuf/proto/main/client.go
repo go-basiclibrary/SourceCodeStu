@@ -2,9 +2,9 @@
 package main
 
 import (
+	"GrpcStudy/protobuf/proto"
 	"context"
 	"fmt"
-	"gobasic/protobuf/proto"
 	"google.golang.org/grpc"
 	"time"
 )

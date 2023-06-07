@@ -1,14 +1,14 @@
 package main
 
 import (
+	"GrpcStudy/protobuf/jaeger/otgrpc"
+	"GrpcStudy/protobuf/jaeger/proto"
 	"context"
 	"fmt"
 	"github.com/grpc-ecosystem/go-grpc-middleware/retry"
 	"github.com/opentracing/opentracing-go"
 	"github.com/uber/jaeger-client-go"
 	jaegercfg "github.com/uber/jaeger-client-go/config"
-	"gobasic/protobuf/jaeger/otgrpc"
-	"gobasic/protobuf/jaeger/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
