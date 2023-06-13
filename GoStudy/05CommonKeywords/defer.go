@@ -11,6 +11,43 @@ func main() {
 	//deferZx()
 
 	//fmt.Println(*deferTT())
+
+	//deferFuncTwice()
+
+	deferFuncWithFor()
+}
+
+func deferFuncWithFor() {
+	for i := 0; i < 3; i++ {
+		procLoop()
+		time.Sleep(1e9)
+	}
+}
+
+func procLoop() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+	proc()
+}
+
+func proc() {
+	panic("proc")
+}
+
+func deferFuncTwice() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+	testFunc()
+}
+
+func testFunc() {
+	panic("test")
 }
 
 func deferTT() *int {

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -32,27 +33,28 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println(db)
 
 	// 定义表结构,将表结构生成表
-	err = db.AutoMigrate(&Product{})
-	if err != nil {
-		panic(err)
-	}
-
-	// 新增
-	db.Create(&Product{Code: "D42", Price: 100})
-
-	// Read
-	var product Product
-	db.First(&product, 1)               // 根据主键查找
-	db.First(&product, "code=?", "D42") //根据code查找
-
-	// Update
-	db.Model(&product).Update("Price", 200)  //不会影响零值更新
-	// 多字段更新
-	db.Model(&product).Updates(Product{Price: 200, Code: "F42"})  //仅更新非零字段
-	db.Model(&product).Updates(map[string]interface{}{"Price": 200, "Code": "F42"})
-
-	// Delete 删除 逻辑删除
-	db.Delete(&product, 1)
+	//err = db.AutoMigrate(&Product{})
+	//if err != nil {
+	//	panic(err)
+	//}
+	//
+	//// 新增
+	//db.Create(&Product{Code: "D42", Price: 100})
+	//
+	//// Read
+	//var product Product
+	//db.First(&product, 1)               // 根据主键查找
+	//db.First(&product, "code=?", "D42") //根据code查找
+	//
+	//// Update
+	//db.Model(&product).Update("Price", 200)  //不会影响零值更新
+	//// 多字段更新
+	//db.Model(&product).Updates(Product{Price: 200, Code: "F42"})  //仅更新非零字段
+	//db.Model(&product).Updates(map[string]interface{}{"Price": 200, "Code": "F42"})
+	//
+	//// Delete 删除 逻辑删除
+	//db.Delete(&product, 1)
 }

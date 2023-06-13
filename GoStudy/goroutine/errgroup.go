@@ -10,7 +10,15 @@ func main() {
 	g, _ := errgroup.WithContext(context.TODO())
 	g.Go(func() error {
 		fmt.Println("2")
-		return nil
+		return fmt.Errorf("123")
+	})
+	g.Go(func() error {
+		fmt.Println("2")
+		return fmt.Errorf("321")
+	})
+	g.Go(func() error {
+		fmt.Println("2")
+		return fmt.Errorf("888")
 	})
 
 	g.Go(func() error {
@@ -18,5 +26,6 @@ func main() {
 		return nil
 	})
 
-	g.Wait()
+	err := g.Wait()
+	fmt.Println(err)
 }
