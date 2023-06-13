@@ -1,10 +1,10 @@
 package main
 
 import (
+	"GrpcStudy/protobuf/grpc_resolver/proto"
 	"context"
 	"fmt"
 	"github.com/hashicorp/consul/api"
-	"gobasic/protobuf/grpc_resolver/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/resolver"
 	"io/ioutil"

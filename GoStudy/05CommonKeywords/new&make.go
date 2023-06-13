@@ -34,6 +34,9 @@ func main() {
 	//fmt.Printf("1 %p,%p\n", ctx, &i)
 	//TT(ctx, i)
 	//fmt.Printf("3 %p,%p\n", ctx, &i)
+
+	i := new(int)
+	fmt.Println(*i)
 }
 
 //func TT(ctx context.Context, i int) {

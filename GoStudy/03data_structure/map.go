@@ -69,4 +69,12 @@ func main() {
 	//		fmt.Println(m[i])
 	//	}
 	//}
+
+	// 并发读写map
+	//m := make(map[int]int)
+	//for i := 0; i < 15; i++ {
+	//	go func() {
+	//		m[i] = i
+	//	}()
+	//}
 }

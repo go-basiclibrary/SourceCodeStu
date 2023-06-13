@@ -1,9 +1,9 @@
 package main
 
 import (
+	"GrpcStudy/protobuf/grpc_error_test/proto"
 	context "context"
 	"fmt"
-	"gobasic/protobuf/grpc_error_test/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

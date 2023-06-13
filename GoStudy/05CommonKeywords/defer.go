@@ -48,6 +48,35 @@ func deferFuncTwice() {
 
 func testFunc() {
 	panic("test")
+
+	//t := time.Now()
+	//defer func() {
+	//	fmt.Println(time.Since(t))
+	//}()
+	//defer fmt.Println(3)
+	//time.Sleep(1e9)
+
+	deferProc(3)
+}
+
+func deferProc(twice int) {
+	for i := 0; i < twice; i++ {
+		run()
+		time.Sleep(1e9)
+	}
+}
+
+func run() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+	proc()
+}
+
+func proc() {
+	panic("1")
 }
 
 func deferTT() *int {

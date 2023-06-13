@@ -1,10 +1,10 @@
 package main
 
 import (
+	"GrpcStudy/protobuf/grpc_error_test/proto"
 	"context"
 	"fmt"
 	"github.com/grpc-ecosystem/go-grpc-middleware/retry"
-	"gobasic/protobuf/grpc_error_test/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
