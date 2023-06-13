@@ -75,10 +75,6 @@ func run() {
 	proc()
 }
 
-func proc() {
-	panic("1")
-}
-
 func deferTT() *int {
 	t := 0
 	defer func(i *int) { *i++ }(&t)
