@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+	"git.tencent.com/intl/intl_comm/intlexception"
+	"git.tencent.com/trpc-go/trpc-go/log"
+	"github.com/robfig/cron/v3"
 	"time"
 )
 
@@ -14,7 +17,28 @@ func main() {
 
 	//deferFuncTwice()
 
-	deferFuncWithFor()
+	//deferFuncWithFor()
+
+	deferRecover()
+}
+
+func deferRecover() {
+	c := cron.New()
+	_, err := c.AddFunc("@every 3s", taskFunc)
+	if err != nil {
+		log.Errorf("add func err: %v", err)
+	}
+	c.Start()
+	time.Sleep(1 * time.Hour)
+}
+
+func taskFunc() {
+	defer func() {
+		if err := recover(); err != nil {
+			log.Errorf("go extra err : %v %s", err, intlexception.PanicStackError())
+		}
+	}()
+	panic("123")
 }
 
 func deferFuncWithFor() {

@@ -116,6 +116,16 @@ func main() {
 	//var res = make([]int, 2)
 	//copy(res, []int{1, 2, 3})
 	//fmt.Println(res)
+
+	//var sqlSLice []string
+	//sqlSLice = append(sqlSLice, "abc", "bcd")
+	//fmt.Println(sqlSLice)
+	//sqlSLice = make([]string, 0, 2)
+	//sqlSLice = append(sqlSLice, "1", "2")
+	//fmt.Println(sqlSLice)
+
+	s := fmt.Sprintf("%s:%s", "123", "456")
+	fmt.Println(s)
 }
 
 func changeSlice(res []int) {
