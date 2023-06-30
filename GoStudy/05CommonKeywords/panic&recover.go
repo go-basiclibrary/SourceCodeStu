@@ -1,14 +1,16 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	"git.tencent.com/trpc-go/trpc-go"
 	"github.com/gin-gonic/gin"
 	"sync"
 	"time"
 )
 
 func main() {
-	ginPanic()
+	//ginPanic()
 	//跨协程失效
 	//CrossCtrip()
 
@@ -27,6 +29,18 @@ func main() {
 
 	// go 嵌套panic
 	//PanicQt()
+
+	ctx, _ := context.WithTimeout(context.Background(), time.Millisecond)
+	err := trpc.Go(ctx, time.Millisecond, func(ctx context.Context) {
+		P()
+		fmt.Println("gg")
+	})
+	fmt.Println(err)
+	time.Sleep(100e9)
+}
+
+func P() {
+	time.Sleep(20e9)
 }
 
 func PanicQt() {

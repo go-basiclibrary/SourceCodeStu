@@ -16,7 +16,7 @@ func IntToString(i int) (string, error) {
 	return cast.ToString(i), err
 }
 
-func WrapError(errExternal, errInternal error) error {
+func WrapError(errExternal, errInternal error) *errs.Error {
 	errMsg := fmt.Sprintf("%s", errs.Msg(errExternal))
-	return errs.Wrap(errInternal, errs.Code(errExternal), errMsg)
+	return errs.Wrap(errInternal, errs.Code(errExternal), errMsg).(*errs.Error)
 }
