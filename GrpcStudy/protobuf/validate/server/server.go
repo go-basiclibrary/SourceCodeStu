@@ -16,7 +16,7 @@ type Service struct {
 func (s *Service) SayHello(ctx context.Context, person *proto.Person) (*proto.Person, error) {
 	return &proto.Person{
 		Id: 32,
-	}, nil
+	}, status.Errorf(codes.NotFound, "not found person")
 }
 
 type Validator interface {

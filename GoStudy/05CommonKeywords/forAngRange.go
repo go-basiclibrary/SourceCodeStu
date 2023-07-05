@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 // for & range
 func main() {
@@ -73,7 +76,14 @@ func main() {
 	//	fmt.Println(v)
 	//}
 
-	var i = 1
-	i += 1
-	fmt.Println(i)
+	//var i = 1
+	//i += 1
+	//fmt.Println(i)
+	var s = make([]string, 1200)
+	now := time.Now()
+	for i, _ := range s {
+		fmt.Println(i)
+	}
+	since := time.Since(now)
+	fmt.Println(since.String())
 }
