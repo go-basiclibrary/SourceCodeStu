@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	git.tencent.com/intl/intl_comm v0.0.0-20230519082222-eb788423e5ab
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
 )
