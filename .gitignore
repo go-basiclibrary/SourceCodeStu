@@ -1,2 +1,7 @@
 .idea
-.xml
+*.xml
+*.iml
+ACT.md
+lx.proto
+main.go
+test.json
