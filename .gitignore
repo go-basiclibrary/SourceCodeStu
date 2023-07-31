@@ -5,3 +5,5 @@ ACT.md
 lx.proto
 main.go
 test.json
+
+*.exe
