@@ -33,7 +33,7 @@ func main() {
 				return
 			}
 		}
-		panic(err)
+		fmt.Println(err)
 	}
 	fmt.Println(rsp)
 }

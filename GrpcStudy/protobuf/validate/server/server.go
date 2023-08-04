@@ -7,7 +7,6 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"net"
-	"time"
 )
 
 type Service struct {
@@ -15,7 +14,6 @@ type Service struct {
 }
 
 func (s *Service) SayHello(ctx context.Context, person *proto.Person) (*proto.Person, error) {
-	time.Sleep(1e9)
 	return &proto.Person{
 		Id: 32,
 	}, status.Errorf(codes.NotFound, "not found person")
