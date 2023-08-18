@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // https://gist.github.com/yulvil/5c4d4903bf0b0a332003
 
@@ -42,4 +44,8 @@ func main() {
 	fmt.Printf("first verbosity is %d\n", f.verbosity)
 	DoSomethingVerbosely(f, 1)
 	fmt.Printf("third verbosity is %d\n", f.verbosity)
+}
+
+func isX(i int, x int) bool {
+	return i == x
 }
