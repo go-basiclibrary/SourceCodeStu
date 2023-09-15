@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "validate.proto";
+
+option go_package = ".;api";
+
+service Greeter {
+  rpc SayHello (Person) returns (Person);
+}
+
+message Msg {
+  string msg = 1;
+}
+
+message Person {
+  uint64 id = 1[(validate.rules).uint64.gt = 999];
+  Msg msg = 2;
+}

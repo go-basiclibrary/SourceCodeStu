@@ -17,9 +17,9 @@ func main() {
 
 	//deferFuncTwice()
 
-	//deferFuncWithFor()
+	deferFuncWithFor()
 
-	deferRecover()
+	//deferRecover()
 }
 
 func deferRecover() {
