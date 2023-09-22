@@ -62,5 +62,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("server is start...")
 	server.Serve(listen)
 }

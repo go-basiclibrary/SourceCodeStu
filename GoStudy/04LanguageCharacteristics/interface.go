@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Duck 04 interface
 type Duck interface {
 	Quick()
@@ -53,9 +55,22 @@ func main() {
 	//var c Duck = Cat{}
 	//c.(*Dog).Build()
 
-	var c Duck = Cat{}
-	c.(*Dog).Build()
+	//var c Duck = Cat{}
+	//c.(*Dog).Build()
+
+	//var c interface{}
+	//var b Duck
+	////b = &Dog{}
+	//c = b
+	//of := reflect.TypeOf(c)
+	//fmt.Println(of.String())
+
+	var c interface{}
+	var b Duck = &Dog{}
+	fmt.Println(c == b)
 }
+
+var _ Duck = &Dog{}
 
 type Dog struct {
 }

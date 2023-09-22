@@ -77,4 +77,16 @@ func main() {
 	//		m[i] = i
 	//	}()
 	//}
+
+	//m := make(map[string]string)
+
+	//var s = "abc"
+	//sh := (*reflect.StringHeader)(unsafe.Pointer(&s))
+	//bh := reflect.SliceHeader{
+	//	Data: sh.Data,
+	//	Len:  sh.Len,
+	//	Cap:  sh.Len,
+	//}
+	//b := *(*[]byte)(unsafe.Pointer(&bh))
+	//fmt.Println(b)
 }
