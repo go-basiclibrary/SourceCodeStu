@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"time"
+)
+
 // Go map 运行时核心结构
 //type hmap struct {
 //	// 当前哈希表中的元素数量
@@ -89,4 +94,20 @@ func main() {
 	//}
 	//b := *(*[]byte)(unsafe.Pointer(&bh))
 	//fmt.Println(b)
+
+	m := make(map[int]string)
+	m[1] = "1"
+	m[2] = "2"
+	go func() {
+		for i := 0; i < 100; i++ {
+			fmt.Println(m[1])
+		}
+	}()
+	go func() {
+		for i := 0; i < 100; i++ {
+			fmt.Println(m[2])
+		}
+	}()
+
+	time.Sleep(1e9)
 }
