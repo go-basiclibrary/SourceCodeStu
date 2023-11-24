@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"unicode"
+)
+
 func main() {
 	//err := trpc.Go(context.TODO(), 1*time.Second, func(ctx context.Context) {
 	//	time.Sleep(5e9)
@@ -23,4 +28,11 @@ func main() {
 
 	//env := trpc.ExpandEnv("${MySQL}")
 	//fmt.Println(env)
+	var s rune = 'a'
+	//for _, v := range s {
+	//	fmt.Println(string(v))
+	//}
+
+	upper := unicode.ToUpper(s)
+	fmt.Println(string(upper))
 }
